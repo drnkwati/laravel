@@ -1,10 +1,11 @@
 {
-    "name": "laravel/laravel",
+    "name": "drnkwati/laravel",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The Laravel Framework Dockerized.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "dockerized"
     ],
     "license": "MIT",
     "require": {
@@ -57,7 +58,9 @@
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
-            "@php artisan key:generate --ansi"
+            "@php artisan key:generate --ansi",            
+            "@php -r \"!is_file('../devops/Dockerfile-laravel') || is_file('Dockerfile') ?: copy('../devops/Dockerfile-laravel', 'Dockerfile');\"",
+            "@php -r \"!is_file('../devops/docker-compose-laravel.yml') || is_file('docker-compose.yml') ?: copy('../devops/docker-compose-laravel.yml', 'docker-compose.yml');\""
         ]
     }
 }

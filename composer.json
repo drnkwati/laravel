@@ -59,6 +59,5 @@
             "@php -r \"!is_file('../devops/Dockerfile-laravel') || is_file('Dockerfile') ?: copy('../devops/Dockerfile-laravel', 'Dockerfile');\"",
             "@php -r \"!is_file('../devops/docker-compose-laravel.yml') || is_file('docker-compose.yml') ?: copy('../devops/docker-compose-laravel.yml', 'docker-compose.yml');\""
         ]
-        ]
     }
 }
